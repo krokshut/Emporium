@@ -39,6 +39,14 @@ return {
                     "hand played this run",
                 }
             },
+            j_emp_spirited = {
+                name = "Spirited Joker",
+                text = {
+                    "{C:mult}+#1#{} Mult per {C:spectral}Spectral{}",
+                    "card used while this Joker is held",
+                    "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive})",
+                }
+            },
             j_emp_printing_press = {
                 name = "Printing Press",
                 text = {
@@ -112,7 +120,7 @@ return {
             j_emp_fire_blanket = {
                 name = "Fire Blanket",
                 text =  {
-                    "This Joker {X:yellow,C:white}#1#X{} the {C:attention}blind size{},",
+                    "This Joker {X:yellow,C:white}X#1#{} the {C:attention}blind size{},",
                     "but has a {C:green}#2# in #3#{} chance to",
                     "temporarily disable a random {C:attention}Joker",
                     "{C:inactive}(Cannot disable itself or perishable Jokers){}"

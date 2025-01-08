@@ -187,6 +187,36 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
+    key = "spirited",
+    config = { mult = 0, extra = 10 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 4,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra, center.ability.mult } }
+    end,
+    calculate = function(self, card, context)
+        if context.using_consumeable then
+            if context.consumeable.ability.set == "Spectral" and not context.blueprint then
+                card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize{type='variable',key='a_mult',vars={card.ability.extra}}})
+                card.ability.mult = card.ability.mult + card.ability.extra
+            end
+        end
+        if context.cardarea == G.jokers and context.joker_main and card.ability.mult > 0 then
+            return {
+                message = localize{type='variable',key='a_mult',vars={card.ability.mult}},
+                mult_mod = card.ability.mult
+            }
+        end
+    end
+}
+
+SMODS.Joker{
     key = "printing_press",
     config = { extra = {tags = 1}, mod_conv = "tag_emp_emboss", },
     rarity = 1,
@@ -299,7 +329,7 @@ SMODS.Joker{
                 card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_upgrade_ex')})
             end
         end
-        if context.joker_main then
+        if context.joker_main and card.ability.mult > 0 then
             return {
                 message = localize{ type='variable', key='a_mult', vars={card.ability.mult} },
                 mult_mod = card.ability.extra.mult,
@@ -600,6 +630,12 @@ SMODS.Joker{
         return { vars = {center.ability.extra.chips, center.ability.extra.mult, center.ability.extra.xmult, center.ability.extra.money} }
     end,
     calculate = function(self, card, context)
+        if context.first_hand_drawn then 
+            if not context.blueprint then
+                local eval = function() return G.GAME.current_round.hands_played == 0 end
+                juice_card_until(card, eval, true)
+            end
+        end
         if context.cardarea == G.play and context.individual then
             if G.GAME.current_round.hands_played == 0 and not context.blueprint then
                 if #context.full_hand == 1 then
@@ -667,7 +703,7 @@ SMODS.Joker{
                 end
             end
         end
-        if context.joker_main then
+        if context.joker_main and card.ability.extra.chips > 0 or card.ability.extra.mult > 0 or card.ability.extra.xmult > 0 then
             return {
                 chip_mod = card.ability.extra.chips,
                 mult_mod = card.ability.extra.mult,
