@@ -19,6 +19,11 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 
 <details style="margin-bottom: 15px;">
 <summary><b>Jokers</b>: 18 new jokers, each with unique abilities and effects.</summary>
+<style>
+    li {
+        margin-top: 5px;
+    }
+</style>
 <ul style="margin-top: 10px;">
     <li><b>Shadow Joker</b>: +20 Mult if played hand is a Two Pair and contains only Spades and Clubs</li>
     <li><b>Crimson Joker</b>: +20 Mult if played hand is a Two Pair and contains only Diamonds and Hearts</li>
@@ -42,6 +47,11 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </details>
 <details style="margin-bottom: 15px;">
 <summary><b>Seals</b>: 5 brand new seals with unique effects.</summary>
+<style>
+    li {
+        margin-top: 5px;
+    }
+</style>
 <ul style="margin-top: 10px;">
     <li><b>Emerald Seal</b>: When only this seal is discarded, permanently add 1 discard, and destroy this card.</li>
     <li><b>Amber Seal</b>: When only this seal is discarded, permanently add 1 hand, and destroy this card.</li>
@@ -52,6 +62,11 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </details>
 <details style="margin-bottom: 15px;">
 <summary><b>Consumables</b>: 5 new wax cards to obtain the seals.</summary>
+<style>
+    li {
+        margin-top: 5px;
+    }
+</style>
 <ul style="margin-top: 10px;">
     <li><b>The Shedding</b>: Adds an Emerald Seal to 1 selected card.</li>
     <li><b>The Grasping</b>: Adds an Amber Seal to 1 selected card.</li>
@@ -62,6 +77,11 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </details>
 <details style="margin-bottom: 15px;">
 <summary><b>Booster Packs</b>: 4 wax booster packs for the new consumables.</summary>
+<style>
+    li {
+        margin-top: 5px;
+    }
+</style>
 <ul style="margin-top: 10px;">
     <li><b>Wax Pack</b>: Choose 1 of up to 2 Wax cards to be used immediately.</li>
     <li><b>Wax Pack</b>: Choose 1 of up to 3 Wax cards to be used immediately.</li>
@@ -71,6 +91,11 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </details>
 <details style="margin-bottom: 15px;">
 <summary><b>Tags</b>: 1 new tag.</summary>
+<style>
+    li {
+        margin-top: 5px;
+    }
+</style>
 <ul style="margin-top: 10px;">
     <li><b>Emboss Tag</b>: Immediately open a free Wax Pack.</li>
 </ul>
