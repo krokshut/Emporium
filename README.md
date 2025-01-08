@@ -1,3 +1,12 @@
+# Table of Contents
+
+- [Emporium](#emporium)
+- [Features](#features)
+- [What's Coming](#whats-coming)
+- [Dependencies](#dependencies)
+- [Installation](#installation)
+- [License](#license)
+
 # Emporium
 
 **Emporium** is a vanilla-style content mod for **Balatro**, enhancing the gameplay experience with new jokers, seals, consumables, booster packs, and more. This mod is designed to add fresh content through the new wax cards and custom seals, while maintaining the core feel of the base game.
