@@ -38,7 +38,7 @@ To use the **Emporium** mod, ensure you have the following dependencies installe
 ## Installation
 
 1. Download and install [Steamodded](https://github.com/Steamodded/smods) and [Talisman](https://github.com/MathIsFun0/Talisman).
-1. Download the latest **Emporium** release.
+1. Download the latest [Emporium](https://github.com/krokshut/Emporium/releases/latest) release.
 2. Place the mod folder into your mods folder `(%appdata%/Balatro/Mods)`.
 4. Launch **Balatro** and enjoy!
 
