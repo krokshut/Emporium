@@ -85,7 +85,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 4,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 1, y = 0},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_wild
         return { vars = { center.ability.mult } }
@@ -316,7 +316,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 7,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 2, y = 0},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_lucky
         return { vars = { center.ability.extra.mult, center.ability.extra.money, center.ability.mult, center.ability.money } }

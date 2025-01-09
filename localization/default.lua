@@ -22,7 +22,9 @@ return {
                 text = {
                     "{C:mult}+#1#{} Mult for every unique",
                     "suit scored, {C:attention}Wild{} cards",
-                    "always give this bonus"
+                    "always give this bonus",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
+
                 }
             },
             j_emp_spite = {
@@ -68,7 +70,8 @@ return {
                     "This Joker gains {C:mult}+#1#{} Mult",
                     "and increases payout by {C:attention}$#2#{}",
                     "if a {C:attention}Lucky{} card is played",
-                    "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive},{} {C:attention}$#4#{}{C:inactive}){}"
+                    "{C:inactive}(Currently {C:mult}+#3#{}{C:inactive},{} {C:attention}$#4#{}{C:inactive}){}",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_pawn_shop = {

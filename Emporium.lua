@@ -19,6 +19,8 @@ function loc_colour(_c, _default)
     G.ARGS.LOC_COLOURS["silver"] = HEX('7692a4')
     G.ARGS.LOC_COLOURS["teal"] = HEX('21d9ff')
     G.ARGS.LOC_COLOURS["bronze"] = HEX('c78258')
+    G.ARGS.LOC_COLOURS["art"] = HEX('176d7f')
+    G.ARGS.LOC_COLOURS["alt"] = HEX('7f1739')
     return emp_colours(_c, _default)
 end
 
