@@ -116,7 +116,8 @@ return {
                 text =  {
                     "Played {C:attention}Stone{} cards",
                     "give an extra {C:chips}+#1#{}",
-                    "Chips when scored"
+                    "Chips when scored",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_extra_wild = {

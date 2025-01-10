@@ -460,7 +460,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 7,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 4, y = 1},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
         return { vars = { center.ability.extra.chips } }
