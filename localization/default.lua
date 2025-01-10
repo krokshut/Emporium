@@ -47,7 +47,8 @@ return {
                 text = {
                     "This Joker gives {X:mult,C:white}X#1#{} Mult",
                     "if {C:attention}#2#{} or more cards",
-                    "are scored in a hand"
+                    "are scored in a hand",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_spirited = {

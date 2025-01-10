@@ -196,7 +196,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 4,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 3, y = 1},
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.xmult, center.ability.cards } }
     end,
