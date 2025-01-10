@@ -18,16 +18,19 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </p>
 
 <details style="margin-bottom: 15px;">
-<summary><b>Jokers</b>: 19 new jokers, each with unique abilities and effects.</summary>
+<summary><b>Jokers</b>: 23 new jokers, each with unique abilities and effects.</summary>
 <ul style="margin-top: 10px;">
     <li><b>Shadow Joker</b>: +20 Mult if played hand is a Two Pair and contains only Spades and Clubs</li>
     <li><b>Crimson Joker</b>: +20 Mult if played hand is a Two Pair and contains only Diamonds and Hearts</li>
     <li><b>Scattered Joker</b>: +5 Mult for every unique suit scored, Wild cards always give this bonus</li>
     <li><b>Spite Joker</b>: X1.2 Mult for every card held in hand while scoring</li>
     <li><b>Nomad Joker</b>: +5 Mult for every unique hand played this run</li>
+    <li><b>Unqualified Joker</b>: This Joker gives X1.5 Mult if 4 or more cards are scored in a hand</li>
     <li><b>Spirited Joker</b>: +10 Mult per Spectral Card used while this Joker is held</li>
     <li><b>Printing Press</b>: Sell this card to create a free Emboss Tag</li>
     <li><b>Peapod</b>: If poker hand is a Three of a Kind, destroy this Joker and create 3 free Double Tags</li>
+    <li><b>Peapod</b>: This Joker gives an extra $1 for every hand remaining</li>
+    <li><b>The Triad</b>: This Joker gives X1.5 Mult for every multiple of 3 scored</li>
     <li><b>Wishing Star</b>: This Joker gains +5 Mult and increases payout by $1 if a Lucky card is played</li>
     <li><b>Pawn Shop</b>: Played Steel cards earn $1 and give X1.5 Mult when scored</li>
     <li><b>Moai</b>: Played Stone cards give an extra +100 chips when scored</li>
@@ -38,6 +41,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Bleu Rare</b>: Rare Jokers each give X2 Mult</li>
     <li><b>Fire Blanket</b>: This Joker X0.5 the blind size, but has a 1 in 5 chance to temporarily disable a random Joker</li>
     <li><b>Seal of Authenticity</b>: Retrigger all played Red Seal cards an extra 2 times</li>
+    <li><b>The Fourteenth Chamber</b>: If the ranks of all cards scored sum up to 14, this Joker gives X5 Mult</li>
     <li><b>Great White</b>: If the first played hand of a round has only 1 card, destroy it and add its benefits to this Joker</li>
 </ul>
 </details>

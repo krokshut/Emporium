@@ -26,7 +26,6 @@ return {
                     "suit scored, {C:attention}Wild{} cards",
                     "always give this bonus",
                     "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
-
                 }
             },
             j_emp_spite = {
@@ -43,11 +42,20 @@ return {
                     "hand played this run",
                 }
             },
+            j_emp_unqualified = {
+                name = "Unqualified Joker",
+                text = {
+                    "This Joker gives {X:mult,C:white}X#1#{} Mult",
+                    "if {C:attention}#2#{} or more cards",
+                    "are scored in a hand"
+                }
+            },
             j_emp_spirited = {
                 name = "Spirited Joker",
                 text = {
                     "{C:mult}+#1#{} Mult per {C:spectral}Spectral{}",
-                    "card used while this Joker is held",
+                    "card used while this",
+                    "Joker is held",
                     "{C:inactive}(Currently {C:mult}+#2#{}{C:inactive})",
                 }
             },
@@ -66,6 +74,22 @@ return {
                     "{C:attention}#1#{}, destroy this Joker",
                     "and create {C:attention}#2#{} free {C:attention}#3#s{}",
                     "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
+                }
+            },
+            j_emp_opulent = {
+                name = "Opulent Joker",
+                text = {
+                    "This Joker gives an extra {C:attention}$#1#{}",
+                    "for every {C:attention}hand{} remaining"
+                }
+            },
+            j_emp_triad = {
+                name = "The Triad",
+                text =  {
+                    "This Joker gives {X:mult,C:white}X#1#{}",
+                    "Mult for every",
+                    "multiple of {C:attention}#2#{} scored",
+                    "{C:inactive,s:0.8}Queens (12) included{}"
                 }
             },
             j_emp_wishing_star = {
@@ -139,7 +163,7 @@ return {
                     "This Joker {X:yellow,C:white}X#1#{} the {C:attention}blind size{},",
                     "but has a {C:green}#2# in #3#{} chance to",
                     "temporarily disable a random {C:attention}Joker",
-                    "{C:inactive}(Cannot disable itself or perishable Jokers){}",
+                    "{C:inactive,s:0.85}(Cannot disable itself or perishable Jokers){}",
                     "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
@@ -148,6 +172,15 @@ return {
                 text =  {
                     "Retrigger all played {C:red}Red{}",
                     "{C:red}Seal{} cards an extra {C:attention}#1#{} times",
+                }
+            },
+            j_emp_fourteen = {
+                name = "The Fourteenth Chamber",
+                text =  {
+                    "If the {C:attention}ranks{} of all cards",
+                    "scored sum up to {C:attention}#1#{},",
+                    "this Joker gives {X:mult,C:white}X#2#{} Mult",
+                    "{C:inactive,s:0.7}Jacks (11), Queens (12), Kings (13), Aces (14){}",
                 }
             },
             j_emp_great_white = {

@@ -187,6 +187,32 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
+    key = "unqualified",
+    config = { xmult = 1.5, cards = 4 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 4,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.xmult, center.ability.cards } }
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.jokers and context.joker_main then
+            if #context.scoring_hand >= card.ability.cards then
+                return {
+                    message = localize{type='variable',key='a_xmult',vars={card.ability.xmult}},
+                    Xmult_mod = card.ability.xmult
+                }
+            end
+        end        
+    end
+}
+
+SMODS.Joker{
     key = "spirited",
     config = { mult = 0, extra = 10 },
     rarity = 1,
@@ -303,7 +329,55 @@ SMODS.Joker{
     end
 }
 
+SMODS.Joker{
+    key = "opulent",
+    config = { extra = 1 },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 4,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra } }
+    end,
+    calc_dollar_bonus = function(self, card)
+        if G.GAME.current_round.hands_left > 0 then 
+            local bonus = card.ability.extra*G.GAME.current_round.hands_left
+            return bonus 
+        end
+    end
+}
+
 -- Uncommon Jokers
+
+SMODS.Joker{
+    key = "triad",
+    config = { xmult = 1.5, multiple = 3 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 7,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.xmult, center.ability.multiple } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:get_id() % card.ability.multiple == 0  then
+                return {
+                    x_mult = card.ability.xmult,
+                    card = card
+                }
+            end
+        end
+    end
+}
 
 SMODS.Joker{
     key = "wishing_star",
@@ -637,6 +711,37 @@ SMODS.Joker{
                     }
                 end
             end
+        end
+    end
+}
+
+SMODS.Joker{
+    key = "fourteen",
+    config = { extra = { xmult = 5 }, check = 14 },
+    rarity = 3,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 8,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.check, center.ability.extra.xmult } }
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.jokers and context.joker_main then
+            local id = 0
+            for k, v in pairs(context.scoring_hand) do
+                id = id + v:get_id()
+            end
+            if id == 14 then
+                return {
+                    message = localize{type='variable',key='a_mult',vars={card.ability.extra.xmult}},
+                    Xmult_mod = card.ability.extra.xmult
+                }
+            end
+
         end
     end
 }
