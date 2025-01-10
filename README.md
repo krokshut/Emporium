@@ -29,7 +29,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Spirited Joker</b>: +10 Mult per Spectral Card used while this Joker is held</li>
     <li><b>Printing Press</b>: Sell this card to create a free Emboss Tag</li>
     <li><b>Peapod</b>: If poker hand is a Three of a Kind, destroy this Joker and create 3 free Double Tags</li>
-    <li><b>Peapod</b>: This Joker gives an extra $1 for every hand remaining</li>
+    <li><b>Opulent Joker</b>: This Joker gives an extra $1 for every hand remaining</li>
     <li><b>The Triad</b>: This Joker gives X1.5 Mult for every multiple of 3 scored</li>
     <li><b>Wishing Star</b>: This Joker gains +5 Mult and increases payout by $1 if a Lucky card is played</li>
     <li><b>Pawn Shop</b>: Played Steel cards earn $1 and give X1.5 Mult when scored</li>
