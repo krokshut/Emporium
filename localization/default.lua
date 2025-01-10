@@ -6,7 +6,8 @@ return {
                 text = {
                     "{C:mult}+#1#{} Mult if played hand",
                     "is a {C:attention}#2#{} and contains",
-                    "only {C:attention}Spades{} and {C:attention}Clubs{}"
+                    "only {C:attention}Spades{} and {C:attention}Clubs{}",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"                    
                 }
             },
             j_emp_crimson = {
@@ -14,7 +15,8 @@ return {
                 text = {
                     "{C:mult}+#1#{} Mult if played hand",
                     "is a {C:attention}#2#{} and contains",
-                    "only {C:attention}Diamonds{} and {C:attention}Hearts{}"
+                    "only {C:attention}Diamonds{} and {C:attention}Hearts{}",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_scattered = {
@@ -54,6 +56,7 @@ return {
                 text = {
                     "Sell this card to create",
                     "a free {C:attention}#1#{}",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_peapod = {
@@ -61,7 +64,8 @@ return {
                 text = {
                     "If {C:attention}poker hand{} is a",
                     "{C:attention}#1#{}, destroy this Joker",
-                    "and create {C:attention}#2#{} free {C:attention}#3#s{}"
+                    "and create {C:attention}#2#{} free {C:attention}#3#s{}",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_wishing_star = {
@@ -80,6 +84,14 @@ return {
                     "Played {C:attention}Steel{} cards",
                     "earn {C:money}$#1#{} and give",
                     "{X:mult,C:white} X#2# {} Mult when scored"
+                }
+            },
+            j_emp_moai = {
+                name = "Moai",
+                text =  {
+                    "Played {C:attention}Stone{} cards",
+                    "give an extra {C:chips}+#1#{}",
+                    "Chips when scored"
                 }
             },
             j_emp_extra_wild = {
@@ -110,7 +122,8 @@ return {
                     "This Joker gains {X:mult,C:white}X#1#{} Mult",
                     "every time a {C:attention}playing card{}",
                     "is destroyed",
-                    "{C:inactive}(Currently {X:mult,C:white}X#2# {C:inactive} Mult)"
+                    "{C:inactive}(Currently {X:mult,C:white}X#2# {C:inactive} Mult)",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_bleu_rare = {
@@ -126,7 +139,8 @@ return {
                     "This Joker {X:yellow,C:white}X#1#{} the {C:attention}blind size{},",
                     "but has a {C:green}#2# in #3#{} chance to",
                     "temporarily disable a random {C:attention}Joker",
-                    "{C:inactive}(Cannot disable itself or perishable Jokers){}"
+                    "{C:inactive}(Cannot disable itself or perishable Jokers){}",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_seal_of_authenticity = {

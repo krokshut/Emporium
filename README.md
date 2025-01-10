@@ -18,7 +18,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </p>
 
 <details style="margin-bottom: 15px;">
-<summary><b>Jokers</b>: 18 new jokers, each with unique abilities and effects.</summary>
+<summary><b>Jokers</b>: 19 new jokers, each with unique abilities and effects.</summary>
 <ul style="margin-top: 10px;">
     <li><b>Shadow Joker</b>: +20 Mult if played hand is a Two Pair and contains only Spades and Clubs</li>
     <li><b>Crimson Joker</b>: +20 Mult if played hand is a Two Pair and contains only Diamonds and Hearts</li>
@@ -30,6 +30,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Peapod</b>: If poker hand is a Three of a Kind, destroy this Joker and create 3 free Double Tags</li>
     <li><b>Wishing Star</b>: This Joker gains +5 Mult and increases payout by $1 if a Lucky card is played</li>
     <li><b>Pawn Shop</b>: Played Steel cards earn $1 and give X1.5 Mult when scored</li>
+    <li><b>Moai</b>: Played Stone cards give an extra +100 chips when scored</li>
     <li><b>Extra Wild</b>: Played Wild cards give X1.5 Chips</li>
     <li><b>Wild Bear</b>: Each Wild card held in hand gives X1.5 Mult</li>
     <li><b>Scales of Equilibrium</b>: This Joker gives X2 Mult when remaining hands and discards are equal</li>

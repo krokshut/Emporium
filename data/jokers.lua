@@ -17,7 +17,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 4,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 4, y = 0},
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.mult, localize(center.ability.type, "poker_hands") } }
     end,
@@ -51,7 +51,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 4,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 3, y = 0},
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.mult, localize(center.ability.type, "poker_hands") } }
     end,
@@ -226,7 +226,7 @@ SMODS.Joker{
     eternal_compat = false,
     cost = 4,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 5, y = 0},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {
             set = "Tag",
@@ -260,7 +260,7 @@ SMODS.Joker{
     eternal_compat = false,
     cost = 4,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 2, y = 1},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {key = 'tag_double', set = 'Tag'}
         return { vars = { localize(center.ability.type, "poker_hands"), center.ability.extra.tags, localize{type = 'name_text', set = 'Tag', key = 'tag_double', nodes = {}} } }
@@ -376,6 +376,34 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
+    key = "moai",
+    config = { extra = {chips = 100} },
+    enhancement_gate = 'm_stone',
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 7,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
+        return { vars = { center.ability.extra.chips } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card.ability.name == "Stone Card" then
+                return {
+                    chips = card.ability.extra.chips,
+                    card = card
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker{
     key = "extra_wild",
     config = { extra = {xchips = 1.5} },
     enhancement_gate = 'm_wild',
@@ -477,7 +505,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 8,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 1, y = 1},
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra, center.ability.xmult } }
     end,
@@ -542,7 +570,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 8,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 0, y = 1},
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra.mod, G.GAME.probabilities.normal or 1, center.ability.extra.odds } }
     end,
@@ -636,11 +664,13 @@ SMODS.Joker{
                 juice_card_until(card, eval, true)
             end
         end
-        if context.cardarea == G.play and context.individual then
+        if context.cardarea == G.jokers and context.before then
             if G.GAME.current_round.hands_played == 0 and not context.blueprint then
                 if #context.full_hand == 1 then
 
-                    card.ability.card_to_del = context.other_card
+                    local _card = context.full_hand[1]
+
+                    card.ability.card_to_del = _card
 
                     local add_chips = 0
                     local add_mult = 0
@@ -648,46 +678,45 @@ SMODS.Joker{
                     local add_money = 0
 
                     -- base + hiker
-                    add_chips = add_chips + context.other_card.base.nominal
-                    add_chips = add_chips + context.other_card.ability.perma_bonus
+                    add_chips = add_chips + _card.base.nominal
+                    add_chips = add_chips + _card.ability.perma_bonus
 
                     -- bonus + mult
-                    add_chips = add_chips + context.other_card.ability.bonus
-                    add_mult = add_mult + context.other_card.ability.mult
+                    add_chips = add_chips + _card.ability.bonus
+                    add_mult = add_mult + _card.ability.mult 
 
                     -- editions
-                    if context.other_card.edition then
-                        if context.other_card.edition.type == 'foil' then
+                    if _card.edition then
+                        if _card.edition.type == 'foil' then
                             add_chips = add_chips + 50
                         end
-                        if context.other_card.edition.type == 'holo' then
+                        if _card.edition.type == 'holo' then
                             add_mult = add_mult + 10
                         end
-                        if context.other_card.edition.type == 'polychrome' then
+                        if _card.edition.type == 'polychrome' then
                             add_xmult = add_xmult + .5
                         end
                     end
 
                     -- enhancements
 
-                    if context.other_card.ability.name == 'Glass Card' then
+                    if _card.ability.name == 'Glass Card' then
                         add_xmult = add_xmult + 1
                     end
 
-                    if context.other_card.ability.name == 'Steel Card' then
+                    if _card.ability.name == 'Steel Card' then
                         add_xmult = add_xmult + .5
                     end
 
-                    if context.other_card.ability.name == 'Stone Card' then
-                        add_chips = add_chips + 50
-                        add_chips = add_chips - context.other_card.base.nominal
+                    if _card.ability.name == 'Stone Card' then
+                        add_chips = add_chips - _card.base.nominal
                     end
 
-                    if context.other_card.ability.name == 'Gold Card' then
+                    if _card.ability.name == 'Gold Card' then
                         add_money = add_money + 3
                     end
 
-                    if context.other_card.ability.name == 'Lucky Card' then
+                    if _card.ability.name == 'Lucky Card' then
                         add_money = add_money + 5
                         add_mult = add_mult + 10
                     end
@@ -703,7 +732,7 @@ SMODS.Joker{
                 end
             end
         end
-        if context.joker_main and card.ability.extra.chips > 0 or card.ability.extra.mult > 0 or card.ability.extra.xmult > 0 then
+        if context.joker_main and (card.ability.extra.chips > 0 or card.ability.extra.mult > 0 or card.ability.extra.xmult > 0) then
             return {
                 chip_mod = card.ability.extra.chips,
                 mult_mod = card.ability.extra.mult,
