@@ -81,7 +81,8 @@ return {
                 name = "Opulent Joker",
                 text = {
                     "This Joker gives an extra {C:attention}$#1#{}",
-                    "for every {C:attention}hand{} remaining"
+                    "for every {C:attention}hand{} remaining",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_triad = {
@@ -90,7 +91,8 @@ return {
                     "This Joker gives {X:mult,C:white}X#1#{}",
                     "Mult for every",
                     "multiple of {C:attention}#2#{} scored",
-                    "{C:inactive,s:0.8}Queens (12) included{}"
+                    "{C:inactive,s:0.8}Queens (12) included{}",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_wishing_star = {

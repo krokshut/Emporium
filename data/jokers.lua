@@ -363,7 +363,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 7,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 0, y = 2},
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.xmult, center.ability.multiple } }
     end,
