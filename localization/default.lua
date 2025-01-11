@@ -19,6 +19,24 @@ return {
                     "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
+            j_emp_ethical = {
+                name = "Ethical Joker",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult if played card",
+                    "is {C:attention}even{}, {X:mult,C:white}X#2#{} Mult",
+                    "if played card is {C:attention}odd{}",
+                    "{C:inactive,s:0.8}(Excludes face cards){}"
+                }
+            },
+            j_emp_crooked = {
+                name = "Crooked Joker",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult if played card",
+                    "is {C:attention}odd{}, {X:mult,C:white}X#2#{} Mult",
+                    "if played card is {C:attention}even{}",
+                    "{C:inactive,s:0.8}(Excludes face cards){}"
+                }
+            },
             j_emp_scattered = {
                 name = "Scattered Joker",
                 text = {
@@ -177,6 +195,13 @@ return {
                 text =  {
                     "Retrigger all played {C:red}Red{}",
                     "{C:red}Seal{} cards an extra {C:attention}#1#{} times",
+                }
+            },
+            j_emp_undistinguishable = {
+                name = "Undistinguishable Joker",
+                text =  {
+                    "{X:mult,C:white}X#1#{} Mult if all cards held",
+                    "in hand are the {C:attention}same rank{}",
                 }
             },
             j_emp_fourteen = {
