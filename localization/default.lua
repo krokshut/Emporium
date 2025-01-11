@@ -134,7 +134,8 @@ return {
                 text =  {
                     "This Joker gives {X:mult,C:white}X#1#{}",
                     "Mult when remaining {C:attention}hands{}",
-                    "and {C:attention}discards{} are equal"
+                    "and {C:attention}discards{} are equal",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_wild_bear = {
@@ -185,6 +186,7 @@ return {
                     "scored sum up to {C:attention}#1#{},",
                     "this Joker gives {X:mult,C:white}X#2#{} Mult",
                     "{C:inactive,s:0.7}Jacks (11), Queens (12), Kings (13), Aces (14){}",
+                    "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
             j_emp_great_white = {
