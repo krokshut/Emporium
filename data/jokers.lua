@@ -83,7 +83,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 4,
+    cost = 5,
     atlas = "emp_jokers",
     pos = {x = 1, y = 0},
     loc_vars = function(self, info_queue, center)
@@ -132,7 +132,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 4,
+    cost = 5,
     atlas = "emp_jokers",
     pos = {x = 0, y = 0},
     loc_vars = function(self, info_queue, center)
@@ -164,7 +164,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 4,
+    cost = 5,
     atlas = "emp_jokers",
     pos = {x = 0, y = 0},
     loc_vars = function(self, info_queue, center)
@@ -250,7 +250,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = false,
-    cost = 4,
+    cost = 5,
     atlas = "emp_jokers",
     pos = {x = 5, y = 0},
     loc_vars = function(self, info_queue, center)
@@ -361,7 +361,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 7,
+    cost = 6,
     atlas = "emp_jokers",
     pos = {x = 0, y = 2},
     loc_vars = function(self, info_queue, center)
@@ -388,7 +388,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 7,
+    cost = 8,
     atlas = "emp_jokers",
     pos = {x = 2, y = 0},
     loc_vars = function(self, info_queue, center)
@@ -418,7 +418,36 @@ SMODS.Joker{
     end
 }
 
-
+SMODS.Joker{
+    key = "pawn_shop",
+    config = { extra = {money = 1, xmult = 1.5} },
+    enhancement_gate = 'm_steel',
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 8,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_steel
+        return { vars = { center.ability.extra.money, center.ability.extra.xmult } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card.ability.name == "Steel Card" then
+                G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.money
+                G.E_MANAGER:add_event(Event({func = (function() G.GAME.dollar_buffer = 0; return true end)}))
+                return {
+                    x_mult = card.ability.extra.xmult,
+                    dollars = 1,
+                    card = card
+                }
+            end
+        end
+    end
+}
 
 
 SMODS.Joker{
@@ -430,7 +459,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 7,
+    cost = 5,
     atlas = "emp_jokers",
     pos = {x = 4, y = 1},
     loc_vars = function(self, info_queue, center)
@@ -458,7 +487,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 7,
+    cost = 5,
     atlas = "emp_jokers",
     pos = {x = 0, y = 0},
     loc_vars = function(self, info_queue, center)
@@ -486,7 +515,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 7,
+    cost = 6,
     atlas = "emp_jokers",
     pos = {x = 0, y = 0},
     loc_vars = function(self, info_queue, center)
@@ -521,7 +550,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 7,
+    cost = 6,
     atlas = "emp_jokers",
     pos = {x = 0, y = 0},
     loc_vars = function(self, info_queue, center)
@@ -549,7 +578,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = false,
     eternal_compat = true,
-    cost = 8,
+    cost = 9,
     atlas = "emp_jokers",
     pos = {x = 1, y = 1},
     loc_vars = function(self, info_queue, center)
@@ -614,7 +643,7 @@ SMODS.Joker{
     blueprint_compat = false,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 8,
+    cost = 10,
     atlas = "emp_jokers",
     pos = {x = 0, y = 1},
     loc_vars = function(self, info_queue, center)
@@ -665,7 +694,7 @@ SMODS.Joker{
     blueprint_compat = true,
     perishable_compat = true,
     eternal_compat = true,
-    cost = 8,
+    cost = 9,
     atlas = "emp_jokers",
     pos = {x = 0, y = 0},
     loc_vars = function(self, info_queue, center)
