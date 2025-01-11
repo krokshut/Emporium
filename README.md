@@ -18,7 +18,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </p>
 
 <details style="margin-bottom: 15px;">
-<summary><b>Jokers</b>: 23 new jokers, each with unique abilities and effects.</summary>
+<summary><b>Jokers</b>: 24 new jokers, each with unique abilities and effects.</summary>
 <ul style="margin-top: 10px;">
     <li><b>Shadow Joker</b>: +20 Mult if played hand is a Two Pair and contains only Spades and Clubs</li>
     <li><b>Crimson Joker</b>: +20 Mult if played hand is a Two Pair and contains only Diamonds and Hearts</li>
@@ -43,6 +43,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Seal of Authenticity</b>: Retrigger all played Red Seal cards an extra 2 times</li>
     <li><b>The Fourteenth Chamber</b>: If the ranks of all cards scored sum up to 14, this Joker gives X5 Mult</li>
     <li><b>Great White</b>: If the first played hand of a round has only 1 card, destroy it and add its benefits to this Joker</li>
+    <li><b>Modulo</b>: X1 Mult for every remaining hand, and apply this to each scored card</li>
 </ul>
 </details>
 <details style="margin-bottom: 15px;">

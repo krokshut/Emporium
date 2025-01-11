@@ -339,7 +339,7 @@ SMODS.Joker{
     eternal_compat = true,
     cost = 4,
     atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
+    pos = {x = 5, y = 1},
     loc_vars = function(self, info_queue, center)
         return { vars = { center.ability.extra } }
     end,
@@ -418,36 +418,8 @@ SMODS.Joker{
     end
 }
 
-SMODS.Joker{
-    key = "pawn_shop",
-    config = { extra = {money = 1, xmult = 1.5} },
-    enhancement_gate = 'm_steel',
-    rarity = 2,
-    discovered = true,
-    blueprint_compat = true,
-    perishable_compat = true,
-    eternal_compat = true,
-    cost = 7,
-    atlas = "emp_jokers",
-    pos = {x = 0, y = 0},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue + 1] = G.P_CENTERS.m_steel
-        return { vars = { center.ability.extra.money, center.ability.extra.xmult } }
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            if context.other_card.ability.name == "Steel Card" then
-                G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.money
-                G.E_MANAGER:add_event(Event({func = (function() G.GAME.dollar_buffer = 0; return true end)}))
-                return {
-                    x_mult = card.ability.extra.xmult,
-                    dollars = 1,
-                    card = card
-                }
-            end
-        end
-    end
-}
+
+
 
 SMODS.Joker{
     key = "moai",
@@ -869,6 +841,33 @@ SMODS.Joker{
         local bonus = card.ability.extra.money
         if bonus > 0 then 
             return bonus 
+        end
+    end
+}
+
+SMODS.Joker{
+    key = "modulo",
+    config = { extra = { xmult = 1 } },
+    rarity = 4,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 20,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra.xmult } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            local mult = card.ability.extra.xmult*(G.GAME.current_round.hands_left+1)
+            if context.other_card and mult > 1 then
+                return {
+                    x_mult = mult,
+                    card = card
+                }
+            end
         end
     end
 }

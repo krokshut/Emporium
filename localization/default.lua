@@ -194,6 +194,14 @@ return {
                     "{C:inactive}(Currently {C:chips}+#1#{}{C:inactive},{} {C:mult}+#2#{}{C:inactive},{} {X:mult,C:white}X#3#{}{C:inactive},{} {C:attention}$#4#{}{C:inactive}){}"
                 }
             },
+            j_emp_modulo = {
+                name = "Modulo",
+                text =  {
+                    "{X:mult,C:white}X#1#{} Mult for every {C:attention}remaining{}",
+                    "{C:attention}hand{} before scoring, and",
+                    "apply this to each {C:attention}scored card{}",
+                }
+            },
         },
         Other={
             emp_emerald_seal = {
