@@ -93,8 +93,8 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 ## What's Coming
 
 - **ART**: I am NOT an artist at all... if anyone wants to contribute art, please let me know, and I'll make sure to credit you. Thanks!
-- More **Jokers** to expand the mod.
 - **Vouchers** related to the new consumables may be added in the future
+- **POSSIBLY** more **Jokers**, not guarenteed for the time being.
 
 ## Dependencies
 
