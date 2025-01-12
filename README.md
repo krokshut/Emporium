@@ -17,8 +17,10 @@
 Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </p>
 
+![Additions](screenshots/additions.png)
+
 <details style="margin-bottom: 15px;">
-<summary><b>Jokers</b>: 29 new jokers, each with unique abilities and effects.</summary>
+<summary><b>Jokers</b>: 30 new jokers, each with unique abilities and effects.</summary>
 <ul style="margin-top: 10px;">
     <li><b>Shadow Joker</b>: +20 Mult if played hand is a Two Pair and contains only Spades and Clubs</li>
     <li><b>Crimson Joker</b>: +20 Mult if played hand is a Two Pair and contains only Diamonds and Hearts</li>
