@@ -321,6 +321,34 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
+    key = "gold_digger",
+    config = { xmult = 1, extra = .1},
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 5,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        return { vars = { center.ability.extra, center.ability.xmult } }
+    end,
+    calculate = function(self, card, context)
+        if context.buying_card == true and not context.blueprint then
+            card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_upgrade_ex')})
+            card.ability.xmult = card.ability.xmult + card.ability.extra
+        end
+        if context.joker_main then
+            return {
+                message = localize{ type='variable', key='a_xmult', vars={card.ability.xmult} },
+                Xmult_mod = card.ability.xmult
+            }
+        end
+    end
+}
+
+SMODS.Joker{
     key = "opulent",
     config = { extra = 1 },
     rarity = 1,

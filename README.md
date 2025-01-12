@@ -29,6 +29,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Crooked Joker</b>: X1.25 Mult if played card is odd, X0.75 Mult if played card is even</li>
     <li><b>Unqualified Joker</b>: This Joker gives X1.5 Mult if 4 or more cards are scored in a hand</li>
     <li><b>Spite Joker</b>: X1.2 Mult for every card held in hand while scoring</li>
+    <li><b>Gold Digger</b>: This Joker gains X0.1 Mult for every card bought</li>
     <li><b>Opulent Joker</b>: This Joker gives an extra $1 for every hand remaining</li>
     <li><b>Printing Press</b>: Sell this card to create a free Emboss Tag</li>
     <li><b>Peapod</b>: If poker hand is a Three of a Kind, destroy this Joker and create 3 free Double Tags</li>

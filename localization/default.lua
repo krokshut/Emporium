@@ -37,6 +37,14 @@ return {
                     "{C:inactive,s:0.8}(Excludes face cards){}"
                 }
             },
+            j_emp_gold_digger = {
+                name = "Gold Digger",
+                text = {
+                    "This Joker gains {X:mult,C:white}X#1#{} Mult",
+                    "for every bought card",
+                    "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive}){}",
+                }
+            },
             j_emp_scattered = {
                 name = "Scattered Joker",
                 text = {
