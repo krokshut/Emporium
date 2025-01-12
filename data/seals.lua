@@ -130,6 +130,11 @@ SMODS.Seal {
                 end
             end
         end
+    end,
+    draw = function(self, card, layer)
+		G.shared_seals["emp_silver"].role.draw_major = card
+        G.shared_seals["emp_silver"]:draw_shader('dissolve', nil, nil, nil, card.children.center)
+		G.shared_seals["emp_silver"]:draw_shader('voucher', nil, card.ARGS.send_to_shader, nil, card.children.center)
     end
 }
 
@@ -205,6 +210,11 @@ SMODS.Seal {
                 end
             end
         end
+    end,
+    draw = function(self, card, layer)
+		G.shared_seals["emp_bronze"].role.draw_major = card
+        G.shared_seals["emp_bronze"]:draw_shader('dissolve', nil, nil, nil, card.children.center)
+		G.shared_seals["emp_bronze"]:draw_shader('voucher', nil, card.ARGS.send_to_shader, nil, card.children.center)
     end
 }
 
