@@ -18,7 +18,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </p>
 
 <details style="margin-bottom: 15px;">
-<summary><b>Jokers</b>: 28 new jokers, each with unique abilities and effects.</summary>
+<summary><b>Jokers</b>: 29 new jokers, each with unique abilities and effects.</summary>
 <ul style="margin-top: 10px;">
     <li><b>Shadow Joker</b>: +20 Mult if played hand is a Two Pair and contains only Spades and Clubs</li>
     <li><b>Crimson Joker</b>: +20 Mult if played hand is a Two Pair and contains only Diamonds and Hearts</li>
@@ -30,6 +30,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Unqualified Joker</b>: This Joker gives X1.5 Mult if 4 or more cards are scored in a hand</li>
     <li><b>Spite Joker</b>: X1.2 Mult for every card held in hand while scoring</li>
     <li><b>Gold Digger</b>: This Joker gains X0.1 Mult for every card bought</li>
+    <li><b>Medusa</b>: Turns all played cards to Stone Cards</li>
     <li><b>Opulent Joker</b>: This Joker gives an extra $1 for every hand remaining</li>
     <li><b>Printing Press</b>: Sell this card to create a free Emboss Tag</li>
     <li><b>Peapod</b>: If poker hand is a Three of a Kind, destroy this Joker and create 3 free Double Tags</li>
@@ -41,6 +42,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Wild Bear</b>: Each Wild card held in hand gives X1.5 Mult</li>
     <li><b>Scales of Equilibrium</b>: This Joker gives X2 Mult when remaining hands and discards are equal</li>
     <li><b>Undistinguishable Joker</b>: X5 Mult if all cards held in hand are the same rank</li>
+    <li><b>Philanthropist</b>: This Joker has a 1 in 4 chance to create a free The Hermit card when blind is selected</li>
     <li><b>Bleu Rare</b>: Rare Jokers each give X2 Mult</li>
     <li><b>Clawmark</b>: This Joker gains X0.5 Mult every time a playing card is destroyed (starts at X0.75)</li>
     <li><b>The Fourteenth Chamber</b>: If the ranks of all cards scored sum up to 14, this Joker gives X5 Mult</li>

@@ -28,6 +28,13 @@ return {
                     "{C:inactive,s:0.8}(Excludes face cards){}"
                 }
             },
+            j_emp_medusa = {
+                name = "Medusa",
+                text = {
+                    "Turns all {C:attention}scored cards{}",
+                    "to {C:attention}Stone Cards{}",
+                }
+            },
             j_emp_crooked = {
                 name = "Crooked Joker",
                 text = {
@@ -43,6 +50,16 @@ return {
                     "This Joker gains {X:mult,C:white}X#1#{} Mult",
                     "for every bought card",
                     "{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive}){}",
+                }
+            },
+            j_emp_philanthropist = {
+                name = "Philanthropist",
+                text = {
+                    "This Joker has a {C:green}1 in #1#{}",
+                    "chance to create a free {C:tarot}The{}",
+                    "{C:tarot}Hermit{} card when blind is selected",
+                    "{C:inactive,s:0.8}(Must have room, any Joker that{}",
+                    "{C:inactive,s:0.8}copies this has a seperate chance){}",
                 }
             },
             j_emp_scattered = {
@@ -384,6 +401,7 @@ return {
             k_applied = "Applied!",
             k_wax = "Wax",
             k_emp_wax_pack = "Wax Pack",
+            k_stone = "Stone"
         },
         high_scores={},
         labels={

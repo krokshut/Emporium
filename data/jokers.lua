@@ -349,6 +349,44 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
+    key = "medusa",
+    config = { },
+    rarity = 1,
+    discovered = true,
+    blueprint_compat = false,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 4,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_stone
+        return {  }
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.jokers then
+            if context.before then
+                for k, v in ipairs(context.scoring_hand) do
+                    v:set_ability(G.P_CENTERS.m_stone, nil, true)
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            v:juice_up()
+                            return true
+                        end
+                    })) 
+                end
+                return {
+                    message = localize('k_stone'),
+                    colour = G.C.GREY,
+                    card = card
+                }
+                
+            end
+        end
+    end
+}
+
+SMODS.Joker{
     key = "opulent",
     config = { extra = 1 },
     rarity = 1,
@@ -701,6 +739,47 @@ SMODS.Joker{
                     message = localize{type='variable',key='a_xmult',vars={card.ability.xmult}},
                     Xmult_mod = card.ability.xmult
                 }
+            end
+        end
+    end
+}
+
+SMODS.Joker{
+    key = "philanthropist",
+    config = { tarot = 1, odds = 4 },
+    rarity = 2,
+    discovered = true,
+    blueprint_compat = true,
+    perishable_compat = true,
+    eternal_compat = true,
+    cost = 8,
+    atlas = "emp_jokers",
+    pos = {x = 0, y = 0},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue + 1] = G.P_CENTERS.c_hermit 
+        return { vars = { center.ability.odds, center.ability.tarot } }
+    end,
+    calculate = function(self, card, context)
+        if context.setting_blind and not context.getting_sliced then
+            if not (context.blueprint_card or card).getting_sliced and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                if pseudorandom('philantropist') < G.GAME.probabilities.normal / card.ability.odds then
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + card.ability.tarot
+                    G.E_MANAGER:add_event(Event({
+                        func = (function()
+                            G.E_MANAGER:add_event(Event({
+                                func = function() 
+                                    local _card = create_card('Tarot', G.consumeables, nil, nil, nil, nil, "c_hermit", 'her')
+                                    for i = 1, card.ability.tarot do
+                                        _card:add_to_deck()
+                                        G.consumeables:emplace(_card)
+                                        G.GAME.consumeable_buffer = 0
+                                    end
+                                    return true
+                                end}))   
+                                card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = localize('k_plus_tarot'), colour = G.C.PURPLE})                       
+                            return true
+                        end)}))
+                end
             end
         end
     end
