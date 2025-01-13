@@ -11,6 +11,10 @@
 
 **Emporium** is a vanilla-style content mod for **Balatro**, enhancing the gameplay experience with new jokers, seals, consumables, booster packs, and more. This mod is designed to add fresh content through the new wax cards and custom seals, while maintaining the core feel of the base game.
 
+![Shadow Joker](screenshots/Shadow_Joker.png)
+![Crimson Joker](screenshots/Crimson_Joker.png)
+![Peapod](screenshots/Peapod.png)
+
 ## Features
 
 <p style="margin-bottom: 20px;">
@@ -89,6 +93,10 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Emboss Tag</b>: Immediately open a free Wax Pack.</li>
 </ul>
 </details>
+
+**Note**: It's possible at certain times that the source code is more updated than the official release, so if you are missing some features, try the source code instead of official releases. 
+
+**A big thanks** to Cylinderbox for all the current art in the project.
 
 ## What's Coming
 
