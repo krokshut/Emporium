@@ -14,6 +14,7 @@
 ![Shadow Joker](screenshots/Shadow_Joker.png)
 ![Crimson Joker](screenshots/Crimson_Joker.png)
 ![Peapod](screenshots/Peapod.png)
+![The Triad](screenshots/The_Triad.png)
 
 ## Features
 
