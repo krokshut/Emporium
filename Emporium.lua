@@ -30,3 +30,7 @@ SMODS.load_file("data/jokers.lua")()
 SMODS.load_file("data/seals.lua")()
 SMODS.load_file("data/consumables.lua")()
 SMODS.load_file("data/tags.lua")()
+
+if JokerDisplay then
+    SMODS.load_file("data/joker_display_compat.lua")()
+end

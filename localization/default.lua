@@ -6,7 +6,7 @@ return {
                 text = {
                     "{C:mult}+#1#{} Mult if played hand",
                     "is a {C:attention}#2#{} and contains",
-                    "only {C:attention}Spades{} and {C:attention}Clubs{}",
+                    "only {C:spades}Spades{} and {C:clubs}Clubs{}",
                     "{C:alt,s:0.7,E:1}Art by: Cylinderbox"                    
                 }
             },
@@ -15,7 +15,7 @@ return {
                 text = {
                     "{C:mult}+#1#{} Mult if played hand",
                     "is a {C:attention}#2#{} and contains",
-                    "only {C:attention}Diamonds{} and {C:attention}Hearts{}",
+                    "only {C:hearts}Hearts{} and {C:diamonds}Diamonds{}",
                     "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
