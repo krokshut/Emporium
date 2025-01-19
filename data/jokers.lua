@@ -580,7 +580,7 @@ SMODS.Joker{
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-            if context.other_card:get_id() % card.ability.multiple == 0  then
+            if context.other_card:get_id() % card.ability.multiple == 0 then
                 return {
                     x_mult = card.ability.xmult,
                     card = card

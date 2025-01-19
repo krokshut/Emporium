@@ -7,11 +7,6 @@ jd["j_emp_shadow"] = {
         { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
     },
     text_config = { colour = G.C.MULT },
-    reminder_text = {
-        { text = "(" },
-        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.ORANGE },
-        { text = ")" },
-    },
     extra = {
         {
             { text = "("},
@@ -19,6 +14,11 @@ jd["j_emp_shadow"] = {
             { text = " and " },
             { ref_table = "card.joker_display_values", ref_value = "suit2", colour = G.C.SUITS.Clubs },
             { text = ")" }
+        },
+        {
+            { text = "(" },
+            { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.ORANGE },
+            { text = ")" },
         }
     },
     extra_config = {
@@ -55,11 +55,6 @@ jd["j_emp_crimson"] = {
         { ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult" }
     },
     text_config = { colour = G.C.MULT },
-    reminder_text = {
-        { text = "(" },
-        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.ORANGE },
-        { text = ")" },
-    },
     extra = {
         {
             { text = "("},
@@ -67,6 +62,11 @@ jd["j_emp_crimson"] = {
             { text = " and " },
             { ref_table = "card.joker_display_values", ref_value = "suit2", colour = G.C.SUITS.Diamonds },
             { text = ")" }
+        },
+        {
+            { text = "(" },
+            { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.ORANGE },
+            { text = ")" },
         }
     },
     extra_config = {
@@ -97,26 +97,16 @@ jd["j_emp_crimson"] = {
     end
 }
 
-jd["j_emp_opulent"] = {
-    text = {
-        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult", colour = G.C.CHIPS },
-        { text = "x" },
-        { text = "$", colour = G.C.GOLD },
-        { ref_table = "card.ability", ref_value = "extra", colour = G.C.GOLD, retrigger_type = "mult" },
-    },
-    reminder_text = {
-        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
-    },
-    calc_function = function(card)
-        card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
-        card.joker_display_values.count = G.GAME.current_round.hands_left
-    end
-}
-
 jd["j_emp_scattered"] = {
     text = {
         { text = "+" },
         { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult", colour = G.C.MULT },
+    },
+    reminder_text = {
+        { text = "(" },
+        { text = "Per " },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.ORANGE },
+        { text = ")" },
     },
     calc_function = function(card)
         local text, _, scoring_hand = JokerDisplay.evaluate_hand()
@@ -146,6 +136,7 @@ jd["j_emp_scattered"] = {
             end
         end
         card.joker_display_values.count = count*card.ability.mult
+        card.joker_display_values.localized_text = localize("k_suit")
     end
 }
 
@@ -156,8 +147,8 @@ jd["j_emp_nomad"] = {
     },
     reminder_text = {
         { text = "(" },
-        { ref_table = "card.joker_display_values", ref_value = "hands", G.C.CHIPS },
-        { text = " unique hands played)" },
+        { ref_table = "card.joker_display_values", ref_value = "hands", colour = G.C.CHIPS },
+        { text = " unique hands)" },
     },
     calc_function = function(card) 
         local count = 0
@@ -290,6 +281,11 @@ jd["j_emp_unqualified"] = {
             }
         }
     },
+    reminder_text = {
+        { text = "(" },
+        { text = "4 or more", colour = G.C.ORANGE },
+        { text = ")" },
+    },
     calc_function = function(card) 
         local text, _, scoring_hand = JokerDisplay.evaluate_hand()
         if #scoring_hand >= card.ability.cards then
@@ -309,6 +305,11 @@ jd["j_emp_spite"] = {
             }
         }
     },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "triggers", colour = G.C.ORANGE },
+        { text = " triggers)" },
+    },
     calc_function = function(card) 
         local playing_hand = next(G.play.cards)
         local count = 0
@@ -319,6 +320,7 @@ jd["j_emp_spite"] = {
                 end
             end
         end
+        card.joker_display_values.triggers = count
         card.joker_display_values.xmult = card.ability.extra.xmult ^ count
     end
 }
@@ -336,6 +338,215 @@ jd["j_emp_gold_digger"] = {
 
 jd["j_emp_medusa"] = {} -- none
 
+jd["j_emp_opulent"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult", colour = G.C.CHIPS },
+        { text = "x" },
+        { text = "$", colour = G.C.GOLD },
+        { ref_table = "card.ability", ref_value = "extra", colour = G.C.GOLD, retrigger_type = "mult" },
+    },
+    reminder_text = {
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.localized_text = "(" .. localize("k_round") .. ")"
+        card.joker_display_values.count = G.GAME.current_round.hands_left
+    end
+}
 
+jd["j_emp_printing_press"] = {
+    text = {
+        { text = "Sell", colour = G.C.UI.TEXT_INACTIVE },
+    },
+}
+
+jd["j_emp_peapod"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" }
+    },
+    reminder_text = {
+        {text = "(" },
+        { text = "Three of a Kind", colour = G.C.ORANGE },
+        {text = ")" },
+    },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local hand = text == "Three of a Kind"
+        card.joker_display_values.count = hand and "Active" or "Inactive"
+        card.joker_display_values.active = hand
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if text and text.children[1] then
+            text.children[1].config.colour = card.joker_display_values.active and G.C.SECONDARY_SET.Spectral or
+                G.C.UI.TEXT_INACTIVE
+        end
+        return false
+    end
+}
+
+jd["j_emp_moai"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { text = "x", scale = 0.35 },
+        { text = "+", colour = G.C.CHIPS },
+        { ref_table = "card.ability.extra", ref_value = "chips", retrigger_type = "mult", colour = G.C.CHIPS },
+    },
+    reminder_text = {
+        { text = "(" },
+        { text = "Stone Cards", colour = G.C.ORANGE },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local count = 0
+        for _, scoring_card in pairs(scoring_hand) do
+            if scoring_card.ability.name == "Stone Card" then
+                count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+            end
+        end
+        card.joker_display_values.count = count
+    end
+}
+
+jd["j_emp_wishing_star"] = {
+    text = {
+        { text = "+", colour = G.C.MULT },
+        { ref_table = "card.ability", ref_value = "mult", retrigger_type = "mult", colour = G.C.MULT },
+        { text = ", ", },
+        { text = "$", colour = G.C.GOLD },
+        { ref_table = "card.ability", ref_value = "money", retrigger_type = "mult", colour = G.C.GOLD },
+    },
+    reminder_text = {
+        { text = "(Money per " },
+        { ref_table = "card.joker_display_values", ref_value = "localized_text" },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        card.joker_display_values.localized_text = localize("k_round")
+    end
+}
+
+jd["j_emp_triad"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { text = "x", scale = 0.35 },
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability", ref_value = "xmult" }
+            }
+        }
+    },
+    reminder_text = {
+        { text = "(Multiples of "},
+        { ref_table = "card.ability", ref_value = "multiple", colour = G.C.ORANGE },
+        { text = ")" }
+    },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local count = 0
+        for _, scoring_card in pairs(scoring_hand) do
+            if scoring_card:get_id() % card.ability.multiple == 0 then
+                count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+            end
+        end
+        card.joker_display_values.count = count
+    end
+}
+
+jd["j_emp_pawn_shop"] = {
+    extra = {
+        {
+            { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+            { text = "x", scale = 0.35 },
+            { text = "$", colour = G.C.GOLD },
+            { ref_table = "card.ability.extra", ref_value = "money", colour = G.C.GOLD },
+
+        },
+        {
+            { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+            { text = "x", scale = 0.35 },
+            {
+                border_nodes = {
+                    { text = "X" },
+                    { ref_table = "card.ability.extra", ref_value = "xmult" }
+                }
+            }, 
+        }
+    },
+    reminder_text = {
+        { text = "("},
+        { text = "Steel Cards", colour = G.C.ORANGE },
+        { text = ")" }
+    },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local count = 0
+        for _, scoring_card in pairs(scoring_hand) do
+            if scoring_card.ability.name == "Steel Card" then
+                count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+            end
+        end
+        card.joker_display_values.count = count
+    end
+}
+
+jd["j_emp_extra_wild"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { text = "x", scale = 0.35 },
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "xchips" }
+            },
+            border_colour = G.C.CHIPS
+        }
+    },
+    reminder_text = {
+        { text = "("},
+        { text = "Wild Cards", colour = G.C.ORANGE },
+        { text = ")" }
+    },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local count = 0
+        for _, scoring_card in pairs(scoring_hand) do
+            if scoring_card.ability.name == "Wild Card" then
+                count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+            end
+        end
+        card.joker_display_values.count = count
+    end
+}
+
+jd["j_emp_wild_bear"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp" }
+            }
+        }
+    },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "triggers", colour = G.C.ORANGE },
+        { text = " triggers)" },
+    },
+    calc_function = function(card)
+        local playing_hand = next(G.play.cards)
+        local count = 0
+        for _, playing_card in ipairs(G.hand.cards) do
+            if playing_hand or not playing_card.highlighted then
+                if not (playing_card.facing == 'back') and not playing_card.debuff and playing_card.ability.name == "Wild Card" then
+                    count = count + JokerDisplay.calculate_card_triggers(playing_card, nil, true)
+                end
+            end
+        end
+        card.joker_display_values.xmult = card.ability.extra.xmult ^ count
+        card.joker_display_values.triggers = count
+    end
+}
 
 return
