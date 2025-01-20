@@ -701,7 +701,7 @@ SMODS.Joker{
     end,
     calculate = function(self, card, context)
         if context.joker_main then
-            if G.GAME.current_round.hands_left == G.GAME.current_round.discards_left then
+            if G.GAME.current_round.hands_left+1 == G.GAME.current_round.discards_left then
                 return {
                     message = localize{ type='variable', key='a_xmult', vars={card.ability.extra.xmult} },
                     Xmult_mod = card.ability.extra.xmult
@@ -1068,7 +1068,7 @@ SMODS.Joker{
 
                     if _card.ability.name == 'Lucky Card' then
                         add_money = add_money + 5
-                        add_mult = add_mult + 10
+                        add_mult = add_mult - 10 
                     end
 
                     -- final calcs 

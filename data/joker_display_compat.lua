@@ -291,7 +291,7 @@ jd["j_emp_unqualified"] = {
         if #scoring_hand >= card.ability.cards then
             card.joker_display_values.xmult = card.ability.xmult
         else
-            card.joker_display_values.xmult = 0
+            card.joker_display_values.xmult = 1
         end
     end
 }
@@ -377,8 +377,7 @@ jd["j_emp_peapod"] = {
     end,
     style_function = function(card, text, reminder_text, extra)
         if text and text.children[1] then
-            text.children[1].config.colour = card.joker_display_values.active and G.C.SECONDARY_SET.Spectral or
-                G.C.UI.TEXT_INACTIVE
+            text.children[1].config.colour = card.joker_display_values.active and G.C.SECONDARY_SET.Spectral or G.C.UI.TEXT_INACTIVE
         end
         return false
     end
@@ -547,6 +546,281 @@ jd["j_emp_wild_bear"] = {
         card.joker_display_values.xmult = card.ability.extra.xmult ^ count
         card.joker_display_values.triggers = count
     end
+}
+
+jd["j_emp_scales"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "xmult" }
+            }
+        }
+    },
+    reminder_text = {
+        { text = "(" },
+        { ref_table = "card.joker_display_values", ref_value = "hands", colour = G.C.CHIPS },
+        { text = ", "},
+        { ref_table = "card.joker_display_values", ref_value = "discards", colour = G.C.MULT },
+        { text = ")" },
+    },
+    calc_function = function(card)
+        local hands = G.GAME.current_round.hands_left
+        local discards = G.GAME.current_round.discards_left
+        card.joker_display_values.hands = hands
+        card.joker_display_values.discards = discards
+
+        local equal = hands == discards
+        card.joker_display_values.xmult = equal and card.ability.extra.xmult or 1
+
+    end
+}
+
+jd["j_emp_undistinguishable"] = {
+    extra = {
+        {
+            { text = "must be " },
+            { text = "equal", colour = G.C.ORANGE },
+            { text = ")" }
+        },
+        {
+            { text = "(All " },
+            { text = "held cards", colour = G.C.ORANGE },
+        },
+    },
+    extra_config = {
+        colour = G.C.UI.TEXT_INACTIVE,
+        scale = 0.3
+    },
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "xmult" }
+            }
+        }
+    },
+    calc_function = function(card)
+        local playing_hand = next(G.play.cards)
+        local cardrank
+        if G.hand.cards then
+            for _, playing_card in ipairs(G.hand.cards) do
+                if playing_hand or not playing_card.highlighted then
+                    if not (playing_card.facing == 'back') and not playing_card.debuff then
+                        cardrank = playing_card:get_id()
+                        break
+                    end
+                end
+            end
+        else
+            cardrank = nil
+        end
+        local check = true
+        for _, playing_card in ipairs(G.hand.cards) do
+            if playing_hand or not playing_card.highlighted then
+                if not (playing_card.facing == 'back') and not playing_card.debuff and playing_card:get_id() ~= cardrank then
+                    check = false
+                end
+            end
+        end
+        card.joker_display_values.xmult = check and card.ability.xmult or 1
+    end
+}
+
+jd["j_emp_philanthropist"] = {
+    extra = {
+        {
+            { text = "(" },
+            { ref_table = "card.joker_display_values", ref_value = "odds" },
+            { text = ")" },
+        },
+        {
+            { text = "The Hermit", colour = G.C.SECONDARY_SET.Tarot}
+        }
+    },
+    extra_config = { colour = G.C.GREEN, scale = 0.3 },
+    calc_function = function(card)
+        card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.odds } }
+    end
+}
+
+jd["j_emp_bleu_rare"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { text = "x", scale = 0.35 },
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "xmult" }
+            }
+        }
+    },
+    reminder_text = {
+        { text = "("},
+        { ref_table = "card.joker_display_values", ref_value = "localized_text", colour = G.C.RED },
+        { text = ")" }
+    },
+    calc_function = function(card)
+        local count = 0
+        if G.jokers then
+            for _, joker_card in ipairs(G.jokers.cards) do
+                if joker_card.config.center.rarity and joker_card.config.center.rarity == 3 and joker_card ~= card then
+                    count = count + 1
+                end
+            end
+        end
+        card.joker_display_values.count = count
+        card.joker_display_values.localized_text = localize("k_rare")
+    end,
+}
+
+jd["j_emp_clawmark"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "xmult" }
+            }
+        }
+    },
+    calc_function = function(card)
+        card.joker_display_values.xmult = card.ability.xmult
+    end
+}
+
+jd["j_emp_fourteen"] = {
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "xmult" }
+            }
+        }
+    },
+    reminder_text = {
+        { text = "(Sum = "},
+        { ref_table = "card.joker_display_values", ref_value = "count"},
+        { text = ")" }
+    },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local rank = 0
+        for _, scoring_card in pairs(scoring_hand) do
+            rank = rank + scoring_card:get_id()
+        end
+        local check = rank == 14
+        card.joker_display_values.check = check
+        card.joker_display_values.count = rank
+        card.joker_display_values.xmult = check and card.ability.extra.xmult or 1
+    end,
+    style_function = function(card, text, reminder_text, extra)
+        if reminder_text and reminder_text.children[1] and reminder_text.children[2] and reminder_text.children[3] then
+            reminder_text.children[2].config.colour = card.joker_display_values.check and G.C.BLUE or G.C.RED
+        end
+        return false
+    end,
+}
+
+jd["j_emp_seal_of_authenticity"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { text = "x", scale = 0.35 },
+        { ref_table = "card.ability.extra", ref_value = "repetitions", colour = G.C.RED },
+    },
+    reminder_text = {
+        { text = "(Repetitions)"},
+    },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local count = 0
+        for _, scoring_card in pairs(scoring_hand) do
+            if scoring_card.seal then
+                if scoring_card.seal == "Red" then
+                    count = count +1
+                end
+            end
+        end
+        card.joker_display_values.count = count
+    end
+}
+
+jd["j_emp_fire_blanket"] = {
+    extra = {
+        {
+            { text = "(", colour = G.C.UI.TEXT_INACTIVE },
+            { text = "to disable joker", colour = G.C.UI.TEXT_INACTIVE },
+            { text = ")", colour = G.C.UI.TEXT_INACTIVE },
+        },
+        {
+            { text = "(" },
+            { ref_table = "card.joker_display_values", ref_value = "odds" },
+            { text = ")" },
+        },
+    },
+    extra_config = { colour = G.C.GREEN, scale = 0.3 },
+    text = {
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.ability.extra", ref_value = "mod" }
+            },
+            border_colour = G.C.MONEY
+        },
+        { text = " Blind Size"}
+    },
+    calc_function = function(card)
+        card.joker_display_values.odds = localize { type = 'variable', key = "jdis_odds", vars = { (G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds } }
+    end
+}
+
+jd["j_emp_modulo"] = {
+    text = {
+        { ref_table = "card.joker_display_values", ref_value = "count", retrigger_type = "mult" },
+        { text = "x", scale = 0.35 },
+        {
+            border_nodes = {
+                { text = "X" },
+                { ref_table = "card.joker_display_values", ref_value = "xmult" }
+            }
+        }
+    },
+    reminder_text = {
+        { text = "("},
+        { ref_table = "card.joker_display_values", ref_value = "hands", colour = G.C.CHIPS },
+        { text = " hands left)"}
+    },
+    calc_function = function(card)
+        local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+        local mult = card.ability.extra.xmult*(G.GAME.current_round.hands_left)
+        card.joker_display_values.count = #scoring_hand
+        card.joker_display_values.xmult = mult
+        card.joker_display_values.hands = G.GAME.current_round.hands_left
+    end
+}
+
+jd["j_emp_great_white"] = {
+    extra = {
+        {
+            { text = "$", colour = G.C.GOLD },
+            { ref_table = "card.ability.extra", ref_value = "money", colour = G.C.GOLD },
+        },
+        {
+            {
+                border_nodes = {
+                    { text = "X" },
+                    { ref_table = "card.ability.extra", ref_value = "xmult" }
+                }
+            }
+        },
+        {
+            { text = "+", colour = G.C.MULT },
+            { ref_table = "card.ability.extra", ref_value = "mult", colour = G.C.MULT },
+        },
+        {
+            { text = "+", colour = G.C.CHIPS },
+            { ref_table = "card.ability.extra", ref_value = "chips", colour = G.C.CHIPS },
+        },
+    }
 }
 
 return

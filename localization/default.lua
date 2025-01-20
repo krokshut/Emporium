@@ -178,6 +178,7 @@ return {
                     "This Joker gives {X:mult,C:white}X#1#{}",
                     "Mult when remaining {C:attention}hands{}",
                     "and {C:attention}discards{} are equal",
+                    "{C:inactive,s:0.7}(Before playing hand)",
                     "{C:alt,s:0.7,E:1}Art by: Cylinderbox"
                 }
             },
@@ -201,14 +202,14 @@ return {
             j_emp_bleu_rare = {
                 name = "Bleu Rare",
                 text =  {
-                    "{C:red}Rare{} Jokers each",
-                    "give {X:mult,C:white}X#1#{} Mult",
+                    "Other {C:red}Rare{} Jokers",
+                    "each give {X:mult,C:white}X#1#{} Mult",
                 }
             },
             j_emp_fire_blanket = {
                 name = "Fire Blanket",
                 text =  {
-                    "This Joker {X:yellow,C:white}X#1#{} the {C:attention}blind size{},",
+                    "This Joker {X:money,C:white}X#1#{} the {C:attention}blind size{},",
                     "but has a {C:green}#2# in #3#{} chance to",
                     "temporarily disable a random {C:attention}Joker",
                     "{C:inactive,s:0.85}(Cannot disable itself or perishable Jokers){}",

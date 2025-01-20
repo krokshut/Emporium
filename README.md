@@ -50,7 +50,7 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
     <li><b>Scales of Equilibrium</b>: This Joker gives X2 Mult when remaining hands and discards are equal</li>
     <li><b>Undistinguishable Joker</b>: X5 Mult if all cards held in hand are the same rank</li>
     <li><b>Philanthropist</b>: This Joker has a 1 in 4 chance to create a free The Hermit card when blind is selected</li>
-    <li><b>Bleu Rare</b>: Rare Jokers each give X2 Mult</li>
+    <li><b>Bleu Rare</b>: Other Rare Jokers each give X2 Mult</li>
     <li><b>Clawmark</b>: This Joker gains X0.5 Mult every time a playing card is destroyed (starts at X0.75)</li>
     <li><b>The Fourteenth Chamber</b>: If the ranks of all cards scored sum up to 14, this Joker gives X5 Mult</li>
     <li><b>Seal of Authenticity</b>: Retrigger all played Red Seal cards an extra 2 times</li>
@@ -95,6 +95,8 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 </ul>
 </details>
 
+**Full** [JokerDisplay](https://github.com/nh6574/JokerDisplay) compatibility!
+
 **Note**: It's possible at certain times that the source code is more updated than the official release, so if you are missing some features, try the source code instead of official releases. 
 
 **A big thanks** to Cylinderbox for all the current art in the project.
@@ -103,7 +105,6 @@ Currently, <b>Emporium</b> adds the following to <b>Balatro</b>:
 
 - **ART**: I am NOT an artist at all... if anyone wants to contribute art, please let me know, and I'll make sure to credit you. Thanks!
 - **Vouchers** related to the new consumables may be added in the future
-- **POSSIBLY** more **Jokers**, not guarenteed for the time being.
 
 ## Dependencies
 
